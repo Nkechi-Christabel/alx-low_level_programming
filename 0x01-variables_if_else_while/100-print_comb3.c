@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	int i, j;
+	int i, j, last_n = 0;
 
 	for (i = 0; i <= 9; i++)
 	{
@@ -19,16 +19,17 @@ int main(void)
 			putchar(j + '0');
 			if (i == 8 && j == 9)
 			{
-				putchar(' ');
+				last_n = 1;
 			}
-			else
+
+			if (!last_n)
 			{
 			putchar(',');
 			putchar(' ');
 			}
 		}
 	}
-	printf("%s", "\n");
+	putchar('\n');
 
 	return (0);
 }
