@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-	_islower('H');
+	print_sign(2);
 	return (0);
 }
