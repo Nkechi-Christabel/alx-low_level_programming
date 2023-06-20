@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-	_abs(-12);
+	print_last_digit(855);
 	return (0);
 }
