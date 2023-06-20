@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * main - The program that adds two integers and returns the result.
+ * add- The program adds two integers and returns the result.
  *
  * @a: First integer to be added.
  * @b: Second integer to be added.
