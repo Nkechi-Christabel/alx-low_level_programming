@@ -6,11 +6,13 @@
  *
  * @n: The number to return its last digit.
  *
- * Return: Always 0 (Success)`
+ * Return: Returns the last digit of int n.
  */
 int print_last_digit(int n)
 {
-	_putchar('0' + (abs(abs(n) % 10)));
+	int lastDigit = abs(n % 10);
 
-	return (0);
+	_putchar('0' + lastDigit);
+
+	return (lastDigit);
 }
