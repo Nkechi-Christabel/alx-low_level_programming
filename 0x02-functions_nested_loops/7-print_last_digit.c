@@ -6,9 +6,12 @@
  *
  * @n: The number to return its last digit.
  *
- * Return: Returns the last digit of a number(int n)
+ * Return: Always 0 (Success)`
  */
 int print_last_digit(int n)
 {
-	return (_putchar('0' + (n % 10)));
+	_putchar('0' + (n % 10));
+	_putchar('\n');
+
+	return (0);
 }
