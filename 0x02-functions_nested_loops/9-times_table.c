@@ -3,6 +3,9 @@
 /**
  * times_tabl - The program prints the 9 times table, starting with 0.
  *
+ * Description: Prints the 9 times table, starting with 0 inserts a space
+ * between single numbers and two spaces if not single.
+ *
  * Return: The multiplication of numbers from 0 - 9;
  */
 void times_table(void)
@@ -17,6 +20,7 @@ void times_table(void)
 
 			if (times <= 9)
 			{
+				_putchar(' ');
 				_putchar('0' + times);
 			}
 
@@ -28,17 +32,8 @@ void times_table(void)
 
 			if (j != 9)
 			{
-				if (times <= 9)
-				{
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
-				}
-				else
-				{
-					_putchar(',');
-					_putchar(' ');
-				}
+				_putchar(',');
+				_putchar(' ');
 			}
 		}
 		_putchar('\n');
