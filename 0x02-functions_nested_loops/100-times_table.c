@@ -27,24 +27,22 @@ void print_times_table(int n)
 				}
 				_putchar('0' + times);
 			}
-
 			else if (times < 100)
 			{
+				_putchar(' ');
 				_putchar('0' + (times / 10));
 				_putchar('0' + (times % 10));
 			}
-
 			else
 			{
 				_putchar('0' + (times / 100));
-				_putchar('0' + (times /10) % 10);
+				_putchar('0' + (times / 10) % 10);
 				_putchar('0' + (times % 10));
 			}
 
 			if (j != n)
 			{
 				_putchar(',');
-				_putchar(' ');
 				_putchar(' ');
 			}
 		}
