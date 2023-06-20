@@ -5,6 +5,7 @@
  * print_to_98 - Prints all natural numbers from n to 98, followed by a
  * new line.
  *
+ * @n: The first number to be printed
  */
 void print_to_98(int n)
 {
