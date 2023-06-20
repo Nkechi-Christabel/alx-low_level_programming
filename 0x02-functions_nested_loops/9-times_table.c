@@ -20,7 +20,10 @@ void times_table(void)
 
 			if (times <= 9)
 			{
+				if (j != 0)
+				{
 				_putchar(' ');
+				}
 				_putchar('0' + times);
 			}
 
