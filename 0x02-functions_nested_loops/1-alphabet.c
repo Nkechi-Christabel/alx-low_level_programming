@@ -3,7 +3,6 @@
 /**
  * print_alphabet- Prints the alphabets in lowercase followed by a new line.
  *
- * Return: Always 0.
  */
 void print_alphabet(void)
 {
@@ -16,5 +15,4 @@ void print_alphabet(void)
 
 	_putchar('\n');
 
-	return (0);
 }
