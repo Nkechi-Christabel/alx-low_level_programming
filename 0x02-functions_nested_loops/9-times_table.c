@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * times_tabl - The program prints the 9 times table, starting with 0.
+ * times_table - The program prints the 9 times table, starting with 0.
  *
  * Description: Prints the 9 times table, starting with 0 inserts a space
  * between single numbers and two spaces if not single.
