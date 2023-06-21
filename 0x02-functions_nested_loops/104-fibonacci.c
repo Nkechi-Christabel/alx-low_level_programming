@@ -8,21 +8,21 @@
  */
 int main(void)
 {
-	int next, num1 = 1, num2 = 2, sum = 0;
+	int i, next, num1 = 1, num2 = 2;
 
-	while (num1 <= 4000000)
+	printf("%d, %d", num1, num2);
+
+	for (i = 3; i <= 98; i++)
 	{
-		if (!(num1 % 2))
-		{
-			sum += num1;
-		}
-
 		next = num1 + num2;
+
+		printf(", %d", next);
+
 		num1 = num2;
 		num2 = next;
 	}
 
-	printf("%d\n", sum);
+	printf("\n")
 
 	return (0);
 }
