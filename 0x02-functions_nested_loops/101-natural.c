@@ -8,7 +8,15 @@
  */
 int main(void)
 {
-	int sum = 5 / 2 * (3 + 1024);
+	int sum;
+
+	for (int i = 0; i < 1024; i++)
+	{
+		if (i % 3 == 0 || i % 5 == 0)
+		{
+			sum += i;
+		}
+	}
 
 	printf("%d\n", sum);
 
