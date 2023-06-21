@@ -11,13 +11,18 @@ int main(void)
 	int i;
 	unsigned long num1 = 1, num2 = 2;
 
-	for (i = 0; i < 50; i += 2)
+	for (i = 0; i < 48; i += 2)
 	{
-		printf("%lu, %lu\n", num1, num2);
+		printf("%lu, %lu, ", num1, num2);
 
 		num1 = num1 + num2;
 		num2 = num1 + num2;
 	}
+
+	printf("%lu", num1);
+	printf(", %lu\n", num2);
+
+	printf("\n");
 
 	return (0);
 }
