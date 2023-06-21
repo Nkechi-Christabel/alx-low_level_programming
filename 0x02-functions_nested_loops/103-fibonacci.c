@@ -12,7 +12,7 @@ int main(void)
 
 	while (num1 <= 4000000)
 	{
-		if (!(num1 % 2))
+		if (num1 % 2 == 0)
 		{
 			sum += num1;
 		}
