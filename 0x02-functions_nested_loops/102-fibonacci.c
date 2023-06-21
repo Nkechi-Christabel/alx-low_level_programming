@@ -9,11 +9,11 @@
 int main(void)
 {
 	int i;
-	unsigned long long num1 = 1, num2 = 2;
+	unsigned long num1 = 1, num2 = 2;
 
 	for (i = 0; i < 50; i += 2)
 	{
-		printf("%llu, %llu\n", num1, num2);
+		printf("%lu, %lu\n", num1, num2);
 
 		num1 = num1 + num2;
 		num2 = num1 + num2;
