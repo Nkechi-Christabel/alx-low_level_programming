@@ -22,7 +22,5 @@ int main(void)
 	printf("%lu", num1);
 	printf(", %lu\n", num2);
 
-	printf("\n");
-
 	return (0);
 }
