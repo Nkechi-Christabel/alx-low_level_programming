@@ -3,8 +3,6 @@
 /**
  * print_times_table - The program prints n times table, starting with 0.
  * @n: The number of times to print the table
- *
- * Return: The multiplication of numbers from 0 - 9;
  */
 void print_times_table(int n)
 {
@@ -20,12 +18,14 @@ void print_times_table(int n)
 			times = i * j;
 
 			if (times <= 9)
+			{
 				if (j != 0)
 				{
 				_putchar(' ');
 				_putchar(' ');
-				_putchar('0' + times);
 				}
+				_putchar('0' + times);
+			}
 			else if (times < 100)
 			{
 				_putchar(' ');
@@ -38,7 +38,6 @@ void print_times_table(int n)
 				_putchar('0' + (times / 10) % 10);
 				_putchar('0' + (times % 10));
 			}
-
 			if (j != n)
 			{
 				_putchar(',');
