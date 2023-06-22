@@ -2,7 +2,7 @@
 
 /**
  * print_line - The program draws a straight line.
- * @n: The bumber of times'_' is printed.
+ * @n: The number of times'_' is printed.
  *
  */
 void print_line(int n)
