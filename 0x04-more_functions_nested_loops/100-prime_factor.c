@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <math.h>
-#include <stdint.h>
 
 /**
  * main - The program finds and prints the largest prime factor of the number
@@ -10,7 +9,7 @@
 int main(void)
 {
 	int i, arr[100], length = 0;
-	int64_t num = 612852475143;
+	long num = 612852475143;
 
 	for (i = 2; i <= sqrt(num); i++)
 	{
