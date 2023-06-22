@@ -13,9 +13,10 @@ void print_number(int n)
 		n = -n;
 	}
 
-	if (n == 0)
-		_putchar('0');
-
+	else
+	{
+		n = n;
+	}
 
 	if (n / 10)
 		print_number(n / 10);
