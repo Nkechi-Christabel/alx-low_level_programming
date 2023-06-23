@@ -9,19 +9,23 @@
 
 int main(void)
 {
-    int month;
-    int day;
-    int year;
+	int i;
 
-    month = 02;
-    day = 29;
-    year = 2000;
 
-    printf("Date: %02d/%02d/%04d\n", month, day, year);
+	printf("Infinite loop incoming :(\n");
 
-    day = convert_day(month, day);
 
-    print_remaining_days(month, day, year);
+	i = 0;
+	/**
+	 * whhile (i < 10)
+	 * {
+	 *	putchar(i);
+	 * }
+	 */
 
-    return (0);
+	printf("Infinite loop avoided! \\o/\n");
+
+
+	return (0);
+
 }
