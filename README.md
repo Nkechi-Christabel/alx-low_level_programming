@@ -1,5 +1,5 @@
 <div>
-<h1>Learning Objectives</h1>h1>
+<h1>Learning Objectives</h1>
 <p>At the end of this project, you are expected to be able to explain to anyone, without the help of Google:</p>
 </div>
 
@@ -21,7 +21,7 @@ How does the main function influence the return value of the program
 </div>
 
 <div>
-<h2>Requirements</h2>h2>
+<h2>Requirements</h2>
 <h3>C</h3>
 Allowed editors: vi, vim, emacs
 All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
