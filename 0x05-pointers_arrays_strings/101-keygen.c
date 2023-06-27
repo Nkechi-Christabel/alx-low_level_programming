@@ -10,7 +10,7 @@
  */
 int main(void)
 {
-	int rando;
+	int random;
 	int i;
 	int num;
 
