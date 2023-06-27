@@ -10,13 +10,27 @@
  */
 int main(void)
 {
-	int num;
+	char password[64];
+	int i, sum = 0, n;
 
-	srand(time(0));
+	srand(time(NULL));
 
-	num = rand();
+	for (i = 0; i < 64; i++)
+	{
+		password[i] = rand() % 78 + '0';
+		sum += password[i] - '0';
+		putchar(password[i]);
 
-	printf("%i\n", num);
+		if ((2772 - sum) - '0' < 78)
+		{
+			n = 2772 - sum - '0';
+			sum += n;
+			putchar(n + '0');
+			break;
+		}
+	}
+
+	putchar('\n');
 
 	return (0);
 }
