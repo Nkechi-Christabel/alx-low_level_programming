@@ -10,7 +10,9 @@
  */
 int main(void)
 {
-	int random, count, num;
+	int random;
+	int count;
+	int num;
 
 	for (count = 0, num = 2772; num > 122; count++)
 	{
