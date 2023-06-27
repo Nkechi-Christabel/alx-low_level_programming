@@ -10,25 +10,20 @@
  */
 int main(void)
 {
-	char num[64];
-	int i, sum = 0, n;
+	int random;
+	int count;
+	int num;
 
 	srand(time(NULL));
 
-	for (i = 0; i < 64; i++)
+	for (count = 0, num = 2772; num > 122; count++)
 	{
-		num[i] = rand() % 78 + '0';
-		sum += num[i] - '0';
-		putchar(num[i]);
-
-		if ((2772 - sum) - '0' < 78)
-		{
-			n = 2772 - sum - '0';
-			sum += n;
-			putchar(n + '0');
-			break;
-		}
+		random = (rand() % 125) + 1;
+		printf("%c", random);
+		num -= random;
 	}
+
+	printf("%c", num);
 
 	return (0);
 }
