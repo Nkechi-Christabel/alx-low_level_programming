@@ -10,16 +10,16 @@
  */
 int main(void)
 {
-	char password[64];
+	char num[64];
 	int i, sum = 0, n;
 
 	srand(time(NULL));
 
 	for (i = 0; i < 64; i++)
 	{
-		password[i] = rand() % 78 + '0';
-		sum += password[i] - '0';
-		putchar(password[i]);
+		num[i] = rand() % 78 + '0';
+		sum += num[i] - '0';
+		putchar(num[i]);
 
 		if ((2772 - sum) - '0' < 78)
 		{
@@ -29,8 +29,6 @@ int main(void)
 			break;
 		}
 	}
-
-	putchar('\n');
 
 	return (0);
 }
