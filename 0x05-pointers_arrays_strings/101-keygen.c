@@ -10,19 +10,13 @@
  */
 int main(void)
 {
-	int password[64], sum = 0, i;
+	int num;
 
-	srand(time(NULL));
+	srand(time(0));
 
-	for (i = 0; i < 63; i++)
-	{
-		password[i] = rand() % 78;
-		sum += password[i] + ' ';
-		printf("%c", password[i] + ' ');
-	}
+	num = rand();
 
-	password[63] = 2772 - sum;
-	printf("%c\n", password[63] + ' ');
+	printf("%i\n", num);
 
 	return (0);
 }
