@@ -10,11 +10,9 @@
  */
 int main(void)
 {
-	int random;
-	int i;
-	int num;
+	int random, count, num;
 
-	for (i = 0, num = 2772; num > 122; i++)
+	for (count = 0, num = 2772; num > 122; count++)
 	{
 		random = (rand() % 125) + 1;
 		printf("%c", random);
