@@ -13,14 +13,14 @@ char *cap_string(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (next && isalpha(str[i]))
+		if (isspace(str[i]) || ispunct(str[i]))
+			next = 1;
+
+		else if (next && isalpha(str[i]))
 		{
 			str[i] = (char)toupper((unsigned char)str[i]);
 			next = 0;
 		}
-
-		if (isspace(str[i]) || ispunct(str[i]))
-			next = 1;
 
 		else
 			next = 0;
