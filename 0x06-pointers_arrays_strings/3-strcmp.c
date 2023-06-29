@@ -1,5 +1,5 @@
 /**
- * int _strcmp - The program compares two strings.
+ * _strcmp - The program compares two strings.
  * @s1: String one to compare
  * @s2: String two to compare
  *
