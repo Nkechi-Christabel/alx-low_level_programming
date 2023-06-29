@@ -9,10 +9,12 @@
  */
 char *string_toupper(char *str)
 {
-	for (; *str != '\0'; str++)
+	int i;
+
+	for (i = 0;  str[i] != '\0'; i++)
 	{
-		if (islower(*str))
-			*str = (char)toupper((unsigned char)*str);
+		if (islower(str[i]))
+			str[i] = (char)toupper((unsigned char)str[i]);
 
 	}
 
