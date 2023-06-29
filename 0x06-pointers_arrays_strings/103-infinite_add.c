@@ -18,7 +18,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int maxLen = (len1 > len2) ? len1 : len2;
 
 	if (maxLen + 2 > size_r)
-		return (NULL);
+		return (0);
 
 	r[maxLen + 1] = '\0';
 
