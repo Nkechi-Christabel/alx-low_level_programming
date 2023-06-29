@@ -18,9 +18,12 @@ char *cap_string(char *str)
 			str[i] = (char)toupper((unsigned char)str[i]);
 			next = 0;
 		}
-		else if (isspace(str[i]) || ispunct(str[i]))
+
+		if (isspace(str[i]) || ispunct(str[i]))
 			next = 1;
 
+		else
+			next = 0;
 	}
 
 	return (str);
