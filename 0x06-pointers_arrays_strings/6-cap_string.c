@@ -9,16 +9,16 @@
  */
 char *cap_string(char *str)
 {
-	int next = 1;
+	int next = 1, i;
 
-	for (; *str != '\0'; str++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (next && isalpha(*str))
+		if (next && isalpha(str[i]))
 		{
-			*str = (char)toupper((unsigned char)*str);
+			str[i] = (char)toupper((unsigned char)str[i]);
 			next = 0;
 		}
-		else if (isspace(*str) || ispunct(*str))
+		else if (isspace(str[i]) || ispunct(str[i]))
 			next = 1;
 
 	}
