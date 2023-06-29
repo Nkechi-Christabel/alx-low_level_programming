@@ -15,7 +15,7 @@
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
 	int len1 = strlen(n1), len2 = strlen(n2), left = 0, i, j;
-	int maxLen = (len1 > len2) ? len1 : len2;
+	int maxLen = (len1 > len2) ? len1 : len2, rLen;
 
 	if (maxLen + 2  > size_r)
 		return (0);
@@ -42,6 +42,11 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 		r[maxLen] = left + '0';
 	}
+
+	rLen = strlen(r);
+
+	if (rLen > size_r)
+		return (0);
 
 	return (r);
 }
