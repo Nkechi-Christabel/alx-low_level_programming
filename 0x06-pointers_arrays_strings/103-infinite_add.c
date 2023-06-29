@@ -38,9 +38,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	if (left)
 	{
 		if (maxLen < 0)
-		{
 			return (NULL);
-		}
 
 		r[maxLen] = left + '0';
 	}
