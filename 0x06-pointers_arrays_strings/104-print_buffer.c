@@ -27,10 +27,9 @@ void print_buffer(char *b, int size)
 			else
 				printf("  ");
 
-			if (j % 2)
+			if (j % 2 != 0)
 				printf(" ");
 		}
-		printf(" ");
 
 		for (j = 0; j < 10; j++)
 		{
@@ -41,8 +40,6 @@ void print_buffer(char *b, int size)
 				else
 					printf(".");
 			}
-			else
-				 printf(" ");
 		}
 		printf("\n");
 	}
