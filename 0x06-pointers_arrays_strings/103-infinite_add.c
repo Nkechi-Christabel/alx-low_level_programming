@@ -14,36 +14,43 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int len1 = strlen(n1), len2 = strlen(n2), left = 0, i, j;
-	int maxLen = (len1 > len2) ? len1 : len2;
+	int i = 0, j = 0, k, l = 0, f, s, d = 0;
 
-	if (maxLen + 2 > size_r)
+	while (n1[i] != '\0')
+		i++;
+	while (n2[j] != '\0')
+		j++;
+	if (i > j)
+		l = i;
+	else
+		l = j;
+	if (l + 1 > size_r)
 		return (0);
-
-	r[maxLen + 2] = '\0';
-
-	for (i = len1 - 1, j = len2 - 1; i >= 0 || j >= 0; i--, j--)
+	r[l] = '\0';
+	for (k = l - 1 ; k >= 0 ; k--)
 	{
-		int digit1 = (i >= 0) ? (n1[i] - '0') : 0;
-		int digit2 = (j >= 0) ? (n2[j] - '0') : 0;
-
-		int sum = digit1 + digit2 + left;
-
-		left = sum / 10;
-
-		r[maxLen] = (sum % 10) + '0';
-		maxLen--;
+		i--;
+		j--;
+		if (i >= 0)
+			f = n1[i] - '0';
+		else
+			f = 0;
+		if (j >= 0)
+			s = n2[j] - '0';
+		else
+			s = 0;
+		r[k] = (f + s + d) % 10 + '0';
+		d = (f + s + d) / 10;
 	}
-
-	if (left)
+	if (d == 1)
 	{
-		if (maxLen < 0)
+		r[l + 1] = '\0';
+		if (l + 2 > size_r)
 			return (0);
-
-		r[maxLen] = left + '0';
+		while (l-- >= 0)
+			r[l + 1] = r[l];
+		r[0] = d + '0';
 	}
-
-
 	return (r);
 }
 
