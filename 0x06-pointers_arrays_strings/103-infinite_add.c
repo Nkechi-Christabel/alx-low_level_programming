@@ -20,7 +20,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	if (maxLen + 2 > size_r)
 		return (0);
 
-	r[maxLen + 1] = '\0';
+	r[maxLen] = '\0';
 
 	for (i = len1 - 1, j = len2 - 1; i >= 0 || j >= 0; i--, j--)
 	{
