@@ -8,42 +8,39 @@
  */
 void print_buffer(char *b, int size)
 {
-	int i = 0, j = 0, k, l = 0, f, s, d = 0;
+	int i, j;
 
-	while (n1[i] != '\0')
-		i++;
-	while (n2[j] != '\0')
-		j++;
-	if (i > j)
-		l = i;
-	else
-		l = j;
-	if (l + 1 > size_r)
-		return (0);
-	r[l] = '\0';
-	for (k = l - 1 ; k >= 0 ; k--)
+	if (size <= 0)
 	{
-		i--;
-		j--;
-		if (i >= 0)
-			f = n1[i] - '0';
-		else
-			f = 0;
-		if (j >= 0)
-			s = n2[j] - '0';
-		else
-			s = 0;
-		r[k] = (f + s + d) % 10 + '0';
-		d = (f + s + d) / 10;
+		printf("\n");
+		return;
 	}
-	if (d == 1)
+	for (i = 0; i < size; i += 10)
 	{
-		r[l + 1] = '\0';
-		if (l + 2 > size_r)
-			return (0);
-		while (l-- >= 0)
-			r[l + 1] = r[l];
-		r[0] = d + '0';
+		printf("%08x: ", i);
+
+		for (j = 0; j < 10; j++)
+		{
+			if (i + j < size)
+				printf("%02x", *(b + i + j));
+
+			else
+				printf("  ");
+
+			if (j % 2 != 0)
+				printf(" ");
+		}
+
+		for (j = 0; j < 10; j++)
+		{
+			if (i + j < size)
+			{
+				if (*(b + i + j) >= 32 && *(b + i + j) <= 126)
+					printf("%c", *(b + i + j));
+				else
+					printf(".");
+			}
+		}
+		printf("\n");
 	}
-	return (r);
 }
