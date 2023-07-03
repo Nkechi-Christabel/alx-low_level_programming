@@ -1,5 +1,3 @@
-#include <string.h>
-
 /**
  * _memcpy - The program copies memory area.
  * @dest: The memory area to copy to.
@@ -11,9 +9,8 @@
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
 	unsigned int i;
-	int len = strlen(dest);
 
-	for (i = len; i < n; i++)
+	for (i = 0; i < n; i++)
 	{
 		dest[i] = src[i];
 	}
