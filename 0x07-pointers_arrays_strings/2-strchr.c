@@ -19,6 +19,8 @@ char *_strchr(char *s, char c)
 			ptr = &s[i];
 			break;
 		}
+		else if (s[i] == '\0')
+			break;
 	}
 		return (ptr);
 }
