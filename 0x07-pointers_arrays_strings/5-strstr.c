@@ -1,7 +1,7 @@
 #include <stddef.h>
 
 /**
- * _strpbrk - The program locates a substring.
+ * _strstr - The program finds a substring in a string.
  * @haystack: The string to check.
  * @needle: The string or bytes to check for.
  *
