@@ -10,7 +10,7 @@
 char *_strchr(char *s, char c)
 {
 	int i, len = strlen(s);
-	char *ptr = NULL;
+	char *ptr;
 
 	for (i = 0; i < len; i++)
 	{
