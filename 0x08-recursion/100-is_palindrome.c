@@ -2,7 +2,7 @@
 #include <string.h>
 
 /**
- * 100-is_palindrome - The program checks if a string is palindrome.
+ * is_palindrome - The program checks if a string is palindrome.
  * @s: The string to check.
  *
  * Return: 1 if palindrome 0r 0 if not.
@@ -24,6 +24,8 @@ int is_palindrome(char *s)
  * @s: String to check
  * @i: To iterate the string from the left
  * @l: To iterate the string from the right
+ *
+ * Return: 1 if palindrome 0r 0 if not.
  */
 int palindrome(char *s, int i, int l)
 {
