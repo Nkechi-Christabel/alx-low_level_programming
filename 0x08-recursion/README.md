@@ -1,2 +1,2 @@
-<h1>Recursion</h1>
-<p>A recursive function solves a particular problem by calling a copy of itself and solving smaller subproblems of the original problems.</p>
+<h1>What is Recursion Or Recursive?</h1>
+<p>In computer programming, the term recursive describes a function or method that repeatedly calculates a smaller part of itself to arrive at the final result. It is similar to iteration, but instead of repeating a set of operations, a recursive function accomplishes repetition by referring to itself in its own definition.</p>
