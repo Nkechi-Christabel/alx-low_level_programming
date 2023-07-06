@@ -26,7 +26,7 @@ int _sqrt_recursion(int n)
  * @n: The number to calculate the square root of.
  * @i: The current guess for the square root.
  *
- * Return: The square root of the number.
+ * Return: The square root of the number 0r -1.
  */
 int sqrt_helper(int n, int i)
 {
