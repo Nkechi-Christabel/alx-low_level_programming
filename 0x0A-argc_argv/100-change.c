@@ -25,10 +25,12 @@ int main(int argc, char *argv[])
 
 
 	if (cents < 0)
+	{
 		printf("0\n");
+		return (0);
+	}
 
-
-	for (i = 0; i < 5; i++)
+	for (i = 0; i < 5 ; i++)
 	{
 		num = cents / coins[i];
 		change += num;
