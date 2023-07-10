@@ -16,7 +16,11 @@ char *_strdup(char *str)
 		return (NULL);
 
 	if (strDup)
+	{
 		strcpy(strDup, str);
+		return (strDup);
+	}
 
-	return (strDup);
+	return (NULL);
+
 }
