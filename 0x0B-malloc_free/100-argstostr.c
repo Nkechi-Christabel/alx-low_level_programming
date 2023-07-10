@@ -13,7 +13,7 @@
 char *argstostr(int ac, char **av)
 {
 	char *str;
-	int i, len;
+	int i, len = 0;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
@@ -23,7 +23,10 @@ char *argstostr(int ac, char **av)
 		len += strlen(av[i]);
 	}
 
-	str = malloc(len  * sizeof(char));
+	str = malloc((len + 1)  * sizeof(char));
+
+	if (str == NULL)
+		return (NULL);
 
 	strcpy(str, av[0]);
 	strcat(str, "\n");
