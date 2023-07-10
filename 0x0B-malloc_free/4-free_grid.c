@@ -1,39 +1,20 @@
 #include <stdlib.h>
-#include <string.h>
 
 /**
- * alloc_grid - It returns a pointer to a 2 dimensional array of integers.
- * @width: Width of the array
- * @height: Height of the array
+ * free_grid - It frees a 2 dimensional grid
+ * @grid: The grid to free up
+ * @height: Height of the grid
  *
- * Return: Pointer to the concatenated string if successful or
- * NULL if it fails.
  */
-int **alloc_grid(int width, int height)
+void free_grid(int **grid, int height)
 {
-	int i, j, **arr;
+	int i;
 
-	if (width <= 0 || height <= 0)
-		return (NULL);
-
-	arr = malloc(height * sizeof(*arr));
-
-	for (i = 0; arr != NULL && i < height; i++)
+	for (i = 0; i < height; i++)
 	{
-		arr[i] = malloc(sizeof(*arr[i]) * width);
-
-		if (arr[i] == NULL)
-		{
-			for (j = 0; j < i; j++)
-				free(arr[j]);
-
-			free(arr);
-			return (NULL);
-		}
-		for (j = 0; j < width; j++)
-			arr[i][j] = 0;
+		free(grid[i]);
 	}
 
-	return (arr);
+	free(grid);
 
 }
