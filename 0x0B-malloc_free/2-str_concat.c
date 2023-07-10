@@ -2,24 +2,32 @@
 #include <string.h>
 
 /**
- *_strdup - The program returns a pointer to a newly allocated space in memory,
- * which contains a copy of the string given as a parameter.
- * @str: String to be duplicated.
+ * str_concat - The program concatenates two strings.
+ * @s1: String to concatenate.
+ * @s2: String to concatenate.
  *
- * Return: Pointer to the string if sunccessful or NULL if it fails.
+ * Return: Pointer to the concatenated string if successful or
+ * NULL if it fails.
  */
-char *_strdup(char *str)
+char *str_concat(char *s1, char *s2)
 {
-	char *strDup;
+	char *str;
 
-	if (str == NULL)
-		return (NULL);
+	if (s1 == NULL)
+		s1 = "";
 
-	strDup = malloc((strlen(str) + 1) * sizeof(char));
+	if (s2 == NULL)
+		s2 = "";
 
-	if (strDup)
-		strcpy(strDup, str);
 
-	return (strDup);
+	str = malloc((strlen(s1) + strlen(s2) + 1) * sizeof(char));
+
+	if (str)
+	{
+		strcpy(str, s1);
+		strcat(str, s2);
+	}
+
+	return (str);
 
 }
