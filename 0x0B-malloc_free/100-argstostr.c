@@ -5,7 +5,7 @@
  * argstostr - It concatenates all the arguments of your program.
  * Description: Each argument should be followed by a \n in the new string
  * @av: Number of arguments
- * @av: An array of argument strings
+ * @ac: An array of argument strings
  *
  * Return: Pointer to the concatenated string if successful or
  * NULL if it fails.
@@ -23,7 +23,7 @@ char *argstostr(int ac, char **av)
 		len += strlen(av[i]);
 	}
 
-	str = malloc((len + 1)  * sizeof(char));
+	str = malloc(len  * sizeof(char));
 
 	if (str == NULL)
 		return (NULL);
