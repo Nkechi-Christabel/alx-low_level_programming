@@ -20,7 +20,6 @@ int count_words(char *str)
 	return (word_count);
 }
 
-
 /**
  * strtow - The program splits a string into words.
  * Description: Each argument should be followed by a \n in the new string
@@ -34,10 +33,13 @@ char **strtow(char *str)
 	char **words;
 	int i = 0, word_count = 0, word_len, start, idx = 0;
 
-	if (str == NULL || str[0] == '\0')
+	if (str == NULL || *str == '\0')
 		return (NULL);
 
 	word_count = count_words(str);
+
+	if (word_count == 0)
+		return (NULL);
 
 	words = malloc((word_count + 1) * sizeof(char *));
 
