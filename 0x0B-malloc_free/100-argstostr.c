@@ -28,12 +28,9 @@ char *argstostr(int ac, char **av)
 
 	str = malloc(len * sizeof(char));
 
-	if (str == NULL)
-		return (NULL);
-
 	strcpy(str, av[0]);
 
-	for (i = 1; i < ac; i++)
+	for (i = 1; str != NULL && i < ac; i++)
 	{
 		strcat(str, "\n");
 		strcat(str, av[i]);
