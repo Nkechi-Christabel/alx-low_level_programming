@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdlib.h>
 
 /**
  * malloc_checked - The program concatenates two strings.
@@ -6,15 +7,25 @@
  * @s2: The string to concatenate to s1.
  * @n: The number of bytes of s2 to concatenate to s1.
  *
- * Return: Pointer to the allocated memory on success or status value of 98
- * if it fails
+ * Return: Pointer to the allocated memory on success or NULL if it fails.
  */
-void *malloc_checked(unsigned int b)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	void *ptr = malloc(b);
+	char *str;
+	unsigned int len1 = strlen(s1), len2 = strlen(s2);
+	int len = n >= len2 ? (len1 + len2) : (len1 + n);
 
-	if (ptr)
-		return (ptr);
+	str = malloc(len + 1 * sizeof(char));
 
-	exit(98);
+	if (str != NULL)
+	{
+		strcpy(str, s1);
+
+		if (n >= len2)
+			strcat(str, s2);
+
+		strncat(str, s2, n);
+	}
+
+	return (str);
 }
