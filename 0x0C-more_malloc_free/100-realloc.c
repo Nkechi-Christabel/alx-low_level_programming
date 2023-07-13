@@ -25,8 +25,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (ptr == NULL)
 		mem = malloc(new_size * sizeof(unsigned int));
 
-	mem = malloc(new_size * sizeof(unsigned int));
-
 	if (old_size > new_size && mem != NULL)
 	{
 		for (i = 0; i < new_size; i++)
