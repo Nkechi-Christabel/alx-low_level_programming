@@ -11,7 +11,6 @@
  *
  * Return: Multiple of two numbers
  */
-
 void mul(char *num1, char *num2, char *mem)
 {
 	int len1 = strlen(num1), len2 = strlen(num2), start;
