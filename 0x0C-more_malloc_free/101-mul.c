@@ -16,7 +16,7 @@ void mul(char *num1, char *num2, char *result)
 {
 	int len1 = strlen(num1), len2 = strlen(num2), start;
 	int totalLen = len1 + len2;
-	int *temp = (int*)calloc(totalLen, sizeof(int));
+	int *temp = (int *)calloc(totalLen, sizeof(int));
 	int i, j, digit1, digit2, product;
 
 	for (i = len1 - 1; i >= 0; i--)
