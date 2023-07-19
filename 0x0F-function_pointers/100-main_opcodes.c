@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 {
 	int num;
 
-	if (argc < 2)
+	if (argc != 2)
 	{
 		printf("Error\n");
 		exit(1);
