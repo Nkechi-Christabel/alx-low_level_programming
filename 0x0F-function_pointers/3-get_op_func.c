@@ -1,7 +1,7 @@
 #include "3-calc.h"
-#include <stddef.h>
+#include <stdio.h>
 #include <string.h>
-
+#include <stdlib.h>
 /**
  * get_op_func - The program selects the correct function to perform
  * the operation asked by the user.
@@ -29,7 +29,8 @@ int (*get_op_func(char *s))(int, int)
 		i++;
 	}
 
-	return (NULL);
+	printf("Error\n");
 
+	exit(99);
 }
 
