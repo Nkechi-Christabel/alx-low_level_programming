@@ -8,7 +8,6 @@
  *
  * Return: The opcodes of its own main function.
  */
-
 void print_opcodes(int num)
 {
 	char *ptr = (char *)print_opcodes;
@@ -25,24 +24,27 @@ void print_opcodes(int num)
  * @argc: Counts the number of arguments supplied to the program.
  * @argv: Array of strings that are the arguments passed to the program.
  *
- * Return - 0 always (Success)
+ * Return: 0 always (Success)
  */
-
 int main(int argc, char *argv[])
 {
+	int num;
+
 	if (argc < 2)
 	{
 		printf("Error\n");
 		exit(1);
 	}
 
-	if (argv[1] < 0)
+	int num = atoi(argv[1]);
+
+	if (num < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
 
-	print_opcodes(atoi(argv[1]));
+	print_opcodes(num);
 
 	return (0);
 }
