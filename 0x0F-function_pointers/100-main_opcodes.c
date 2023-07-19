@@ -16,7 +16,7 @@ void print_opcodes(void (*func_ptr)(int), int num_bytes)
 	for (i = 0; i < num_bytes - 1; i++)
 		printf("%02hhx ", ptr[i] & 0xFF);
 
-	printf("%02hhx\n", ptr[num - 1]);
+	printf("%02hhx\n", ptr[num_bytes - 1]);
 }
 
 /**
