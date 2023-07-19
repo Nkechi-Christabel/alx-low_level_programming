@@ -16,7 +16,7 @@ void print_opcodes(int num)
 	for (i = 0; i < num; i++)
 		printf("%02hhx ", ptr[i] & 0xFF);
 
-	putchar('\n');
+	printf("\n");
 }
 
 /**
