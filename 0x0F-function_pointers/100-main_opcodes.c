@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	int num_bytes, i;
 	unsigned char *ptr;
 
-	if (argc != 2)
+	if (argc < 2)
 	{
 		printf("Error\n");
 		exit(1);
