@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 /**
  * print_opcodes - The program prints the opcodes of its own main function.
  * @func_ptr: Pointer to the function whose opcodes are to be printed.
@@ -14,10 +13,10 @@ void print_opcodes(void (*func_ptr)(int), int num_bytes)
 	char *ptr = (unsigned char *)func_ptr;
 	int i;
 
-	for (i = 0; i < num_bytes; i++)
+	for (i = 0; i < num_bytes - 1; i++)
 		printf("%02hhx ", ptr[i] & 0xFF);
 
-	printf("\n");
+	printf("%02hhx\n", ptr[num - 1]);
 }
 
 /**
@@ -45,9 +44,7 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 
-	void (*print_opcodes_ptr)(int) = (void (*)(int))main;
-
-	print_opcodes(print_opcodes_ptr, num_bytes);
+	print_opcodes((void (*)(int))main, num_bytes);
 
 	return (0);
 }
