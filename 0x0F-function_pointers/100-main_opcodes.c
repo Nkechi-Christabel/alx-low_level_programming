@@ -14,7 +14,7 @@ void print_opcodes(int num)
 	int i;
 
 	for (i = 0; i < num; i++)
-		printf("%02x ", ptr[i] & 0xFF);
+		printf("%02hhx ", ptr[i] & 0xFF);
 
 	putchar('\n');
 }
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 {
 	int num;
 
-	if (argc != 2)
+	if (argc < 2)
 	{
 		printf("Error\n");
 		exit(1);
