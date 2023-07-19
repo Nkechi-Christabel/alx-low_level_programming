@@ -4,13 +4,14 @@
 
 /**
  * print_opcodes - The program prints the opcodes of its own main function.
- * @num: The number of bytes passed as an argument.
+ * @func_ptr: Pointer to the function whose opcodes are to be printed.
+ * @num: The number of bytes to print.
  *
- * Return: The opcodes of its own main function.
+ * Return: The opcodes of the provided function
  */
-void print_opcodes(int num)
+void print_opcodes(void (*func_ptr)(int), int num)
 {
-	char *ptr = (char *)print_opcodes;
+	char *ptr = (unsigned char *)func_ptr;
 	int i;
 
 	for (i = 0; i < num; i++)
@@ -44,7 +45,7 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 
-	print_opcodes(num);
+	print_opcodes((void (*)(int))main, num);
 
 	return (0);
 }
