@@ -38,9 +38,9 @@ void print_all(const char * const format, ...)
 			ptr++;
 			continue;
 		}
-		if (*(ptr + 1) != '\0')
-			printf(", ");
 		ptr++;
+		if (*ptr)
+			printf(", ");
 	}
 
 	printf("\n");
