@@ -17,13 +17,13 @@ void print_all(const char * const format, ...)
 	while (*ptr != '\0')
 	{
 		if (*ptr == 'c')
-			printf("%c", va_arg(args, int));
+			printf("%c, ", va_arg(args, int));
 
 		else if (*ptr == 'i')
-			printf("%d", va_arg(args, int));
+			printf("%d, ", va_arg(args, int));
 
 		else if (*ptr == 'f')
-			printf("%f", va_arg(args, double));
+			printf("%f, ", va_arg(args, double));
 
 		else if (*ptr == 's')
 		{
@@ -33,9 +33,6 @@ void print_all(const char * const format, ...)
 
 			printf("%s", next);
 		}
-
-		if (*(ptr + 1) != '\0' && (*ptr == 'c' || *ptr == 'i' || *ptr == 'f'))
-			printf(", ");
 
 		ptr++;
 	}
