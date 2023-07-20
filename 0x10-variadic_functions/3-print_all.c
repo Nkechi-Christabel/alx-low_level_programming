@@ -38,10 +38,10 @@ void print_all(const char * const format, ...)
 			ptr++;
 			continue;
 		}
+		ptr++;
+
 		if (*ptr)
 			printf(", ");
-
-		ptr++;
 	}
 
 	printf("\n");
