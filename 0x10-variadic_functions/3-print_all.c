@@ -14,7 +14,7 @@ void print_all(const char * const format, ...)
 
 	va_start(args, format);
 
-	while (*ptr)
+	while (ptr && *ptr)
 	{
 		switch (*ptr)
 		{
@@ -29,7 +29,7 @@ void print_all(const char * const format, ...)
 			break;
 		case 's':
 			next = va_arg(args, char *);
-			if (next == NULL)
+			if (!next)
 				next = "(nil)";
 
 			printf("%s", next);
