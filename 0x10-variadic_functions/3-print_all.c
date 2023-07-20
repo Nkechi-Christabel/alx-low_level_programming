@@ -28,7 +28,8 @@ void print_all(const char * const format, ...)
 		else if (*ptr == 's')
 		{
 			next = va_arg(args, char *);
-			(next) ? next : (next = "(nil)");
+			if (!next)
+				next = "(nil)";
 
 			printf("%s", next);
 		}
