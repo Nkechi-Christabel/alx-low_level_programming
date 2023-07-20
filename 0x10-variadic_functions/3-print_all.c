@@ -16,18 +16,18 @@ void print_all(const char * const format, ...)
 
 	while (*ptr != '\0')
 	{
-		switch(*ptr)
+		switch (*ptr)
 		{
 		case 'c':
-			printf("%c, ", va_arg(args, int));
+			printf("%c", va_arg(args, int));
 			break;
 
 		case 'i':
-			printf("%d, ", va_arg(args, int));
+			printf("%d", va_arg(args, int));
 			break;
 
 		case 'f':
-			printf("%f, ", va_arg(args, double));
+			printf("%f", va_arg(args, double));
 			break;
 
 		case 's':
@@ -37,14 +37,17 @@ void print_all(const char * const format, ...)
 
 			printf("%s", next);
 			break;
+
 		default:
-			break;
+			ptr++;
+			continue;
 
 		}
+		if (*(ptr + 1))
+			printf(", ");
 		ptr++;
 	}
 
 	printf("\n");
-
 	va_end(args);
 }
