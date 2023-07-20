@@ -21,15 +21,12 @@ void print_all(const char * const format, ...)
 		case 'c':
 			printf("%c", va_arg(args, int));
 			break;
-
 		case 'i':
 			printf("%d", va_arg(args, int));
 			break;
-
 		case 'f':
 			printf("%f", va_arg(args, double));
 			break;
-
 		case 's':
 			next = va_arg(args, char *);
 			if (!next)
@@ -37,11 +34,9 @@ void print_all(const char * const format, ...)
 
 			printf("%s", next);
 			break;
-
 		default:
 			ptr++;
 			continue;
-
 		}
 		if (*(ptr + 1))
 			printf(", ");
