@@ -4,7 +4,7 @@
 #include <string.h>
 
 /**
- * add_node_end - It adds a new node at the beginning of a list_t list.
+ * add_node - It adds a new node at the beginning of a list_t list.
  * @head: Pointer to the head of the list
  * @str: The string to be duplicated
  *
