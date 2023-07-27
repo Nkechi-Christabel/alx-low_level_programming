@@ -5,7 +5,7 @@
 #include <stddef.h>
 
 /**
- * add_node-end - It adds a new node at the end of a list_t list.
+ * add_node_end - It adds a new node at the end of a list_t list.
  * @head: Pointer to the head of the list
  * @str: The string to be duplicated
  *
@@ -13,7 +13,10 @@
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *curr, *new_node = malloc(sizeof(list_t));
+	list_t *curr, *neiw_node = malloc(sizeof(list_t));
+
+	if (!head)
+		return (NULL);
 
 	if (new_node)
 	{
@@ -34,7 +37,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		{
 			curr = *head;
 
-			while(curr->next)
+			while (curr->next)
 				curr = curr->next;
 
 			curr->next = new_node;
