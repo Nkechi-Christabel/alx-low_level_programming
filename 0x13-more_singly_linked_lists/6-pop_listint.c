@@ -11,10 +11,8 @@ int pop_listint(listint_t **head)
 	listint_t *temp;
 	int data;
 
-	if (!*head || !head)
-		return (0);
-
-	temp = malloc(sizeof(listint_t));
+	if (!head || !*head)
+		return;
 
 	temp = *head;
 
