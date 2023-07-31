@@ -3,8 +3,7 @@
 #include <stddef.h>
 
 /**
- * listint_len - The program returns the number of elements in a linke
- * listint_t list.
+ * listint_len - Returns the number of elements in a linked listint_t list.
  * @h: A pointer to the head of the list
  *
  * Return: The number of elements in a list
