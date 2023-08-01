@@ -11,9 +11,9 @@
 size_t print_listint_safe(const listint_t *head)
 {
 	const listint_t *current = head, **visited_nodes = NULL;
-	size_t node_count = 0, max_nodes = 10, i;
+	size_t node_count = 0, i;
 
-	visited_nodes = malloc(max_nodes * sizeof(const listint_t *));
+	visited_nodes = malloc(sizeof(const listint_t *));
 	if (!visited_nodes)
 		exit(98);
 
@@ -33,14 +33,6 @@ size_t print_listint_safe(const listint_t *head)
 		{
 			printf("-> [%p] %d\n", (void *)current, current->n);
 			break;
-		}
-		if (node_count == max_nodes)
-		{
-			max_nodes *= 2;
-			visited_nodes = realloc(visited_nodes, max_nodes * sizeof(const listint_t *));
-
-			if (!visited_nodes)
-				exit(98);
 		}
 		visited_nodes[node_count++] = current;
 		printf("[%p] %d\n", (const void *)current, current->n);
