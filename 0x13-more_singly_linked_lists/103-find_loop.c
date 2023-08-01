@@ -28,7 +28,7 @@ listint_t *find_listint_loop(listint_t *head)
 
 			while (one_step != two_steps)
 			{
-				one_step = two_steps->next;
+				one_step = one_step->next;
 				two_steps = two_steps->next;
 			}
 
