@@ -10,50 +10,48 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
-    const listint_t *current = head, **visited_nodes = NULL;
-    size_t node_count = 0, i;
+    listint_t *current = (listint_t *)head, **visited_nodes;
+    size_t node_count = 0, index;
     size_t max_nodes = 10;
+    listint_t **temp;
 
-    visited_nodes = malloc(max_nodes * sizeof(const listint_t *));
+    visited_nodes = malloc(max_nodes * sizeof(listint_t *));
 
     if (!visited_nodes)
 	    exit(98);
 
     while (current)
     {
-        int already_visited = 0;
-
-        for (i = 0; i < node_count; i++)
-        {
-            if (visited_nodes[i] == current)
-            {
-                already_visited = 1;
-                break;
-            }
-        }
-
-        if (already_visited)
-        {
-            printf("-> [%p] %d\n", (void *)current, current->n);
-            break;
-        }
-
         if (node_count == max_nodes)
         {
             max_nodes *= 2;
-            visited_nodes = realloc(visited_nodes, max_nodes * sizeof(const listint_t *));
-            if (!visited_nodes)
-		    exit(98);
+            temp = realloc(visited_nodes, max_nodes * sizeof(listint_t *));
+            if (!temp)
+            {
+                free(visited_nodes);
+                perror("Memory reallocation error");
+                exit(98);
+            }
+            visited_nodes = temp;
+        }
+
+        for (index = 0; index < node_count; index++)
+        {
+            if (visited_nodes[index] == current)
+            {
+                printf("-> [%p] %d\n", (void *)current, current->n);
+                free(visited_nodes);
+                exit(98);
+            }
         }
 
         visited_nodes[node_count++] = current;
+        printf("[%p] %d\n", (void *)current, current->n);
 
-        printf("[%p] %d\n", (const void *)current, current->n);
         current = current->next;
     }
 
     free(visited_nodes);
-
-    return (node_count);
+    return node_count;
 }
 
