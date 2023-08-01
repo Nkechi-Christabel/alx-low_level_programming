@@ -10,7 +10,7 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
-    size_t node_count = 0;
+    size_t node_count = 0, index;
     listint_t *current = *h;
     listint_t *next_node;
     listint_t **visited_nodes = malloc(sizeof(listint_t *) * 1024);
@@ -22,7 +22,6 @@ size_t free_listint_safe(listint_t **h)
     {
         next_node = current->next;
 
-        size_t index;
         for (index = 0; index < node_count; index++)
         {
             if (visited_nodes[index] == current)
