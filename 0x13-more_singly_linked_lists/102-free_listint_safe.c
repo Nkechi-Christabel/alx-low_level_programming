@@ -9,27 +9,41 @@
  */
 size_t free_listint_safe(listint_t **h)
 {
-    size_t node_count = 0;
-    listint_t *current = *h;
-    listint_t *next_node;
+	size_t node_count = 0, index;
+	listint_t *next, *current = *h;
+	listint_t **visited_nodes = malloc(sizeof(listint_t *));
 
-    while (current)
-    {
-        next_node = current->next;
+	if (!visited_nodes)
+		exit(98);
 
-        current->next = NULL;
-        free(current);
+	while (current)
+	{
+		next = current->next;
 
-        current = next_node;
-        node_count++;
+		for (index = 0; index < node_count; index++)
+		{
+			if (visited_nodes[index] == current)
+			{
+				free(visited_nodes);
+				*h = NULL;
+				return (node_count);
+			}
+		}
+		visited_nodes = realloc(visited_nodes, (node_count + 1) *
+				sizeof(listint_t *));
 
-        if (current == *h)
-        {
-            *h = NULL;
-            break;
-        }
-    }
+		if (!visited_nodes)
+			exit(98);
 
-    return (node_count);
+		visited_nodes[node_count] = current;
+		node_count++;
+
+		free(current);
+		current = next;
+	}
+
+	free(visited_nodes);
+	*h = NULL;
+
+	return (node_count);
 }
-
