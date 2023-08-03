@@ -7,8 +7,8 @@
  */
 int get_endianness(void)
 {
-	unsigned int num = 1;
-	unsigned char *ptr = (unsigned char *)&num;
+	int num = 1;
+	char *ptr = (char *)&num;
 
 	return ((int)*ptr);
 }
