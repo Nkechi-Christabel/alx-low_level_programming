@@ -2,7 +2,7 @@
 #define MAIN_H
 
 #include <stddef.h>
-#include <unistd.h> 
+#include <unistd.h>
 
 int _putchar(char c);
 int _strlen(const char *s);
