@@ -59,21 +59,18 @@ int main(int argc, char *argv[])
 
 	while ((i = read(file_from, buffer, BUFFER_SIZE)) > 0)
 	{
-		copied = 0;
-		while (copied < i)
-		{
-			result = write(file_to, buffer + copied, i - copied);
+			result = write(file_to, buffer, i);
 
 			if (result == -1)
 				error_exit("Error: Can't write to %s\n", argv[2], file_from,
 						file_to, 99);
 
 			copied += result;
-		}
 	}
 
 	if (i == -1)
-		error_exit("Error: Can't read from file %s\n", argv[1], file_from, file_to, 98);
+		error_exit("Error: Can't read from file %s\n", argv[1],
+				file_from, file_to, 98);
 
 	if (close(file_from) == -1 || close(file_to) == -1)
 		error_exit("Error: Can't close fd %d\n", NULL, file_from, file_to, 100);
