@@ -29,6 +29,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	buf = malloc(letters);
 	if (!buf)
 	{
+		close(fd);
 		return (0);
 	}
 
@@ -47,6 +48,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (write_fl == read_fl)
 	{
+		close(fd);
+		free(fd);
 		return (0);
 	}
 	close(fd);
