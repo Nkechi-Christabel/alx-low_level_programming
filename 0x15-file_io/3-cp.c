@@ -18,7 +18,7 @@ void error_exit(const char *message, const char *filename, int status)
 	if (filename)
 		dprintf(STDERR_FILENO, message, filename);
 	else
-		dprintf(STDERR_FILENO, "%s", message);
+		dprintf(STDERR_FILENO, message, "");
 
 
 	exit(status);
