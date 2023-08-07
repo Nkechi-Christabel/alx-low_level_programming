@@ -6,7 +6,7 @@
 /**
  * create_file - The program creates a file
  * @filename: The file to create
- * text_content: A NULL terminated string to write to the file
+ * @text_content: A NULL terminated string to write to the file
  *
  * Return: 1 on success or -1 if it fails
  */
@@ -24,7 +24,7 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content)
 		write_fl = write(fd, text_content, strlen(text_content));
-	
+
 	if (write_fl == -1)
 	{
 		close(fd);
