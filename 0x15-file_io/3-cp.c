@@ -7,7 +7,7 @@
 #define BUFFER_SIZE 1024
 
 /**
- * errors - Helper function to handle errors
+ * error_exit - Helper function to handle errors
  * @message: Error message
  * @filename: The initial file which is the 2nd argument
  * @fd1: File directory 1
@@ -15,19 +15,13 @@
  * @status: Exit status
  */
 
-void error_exit(const char *message, const char *filename, int fd1, int fd2,
-		int status)
+void error_exit(const char *message, const char *filename,  __attribute__((unused))
+		int fd1, __attribute__((unused)) int fd2, int status)
 {
 	if (filename)
 		dprintf(STDERR_FILENO, message, filename);
 	else
 		dprintf(STDERR_FILENO, "%s", message);
-
-	if (fd1 != -1)
-		close(fd1);
-
-	if (fd2 != -1)
-		close(fd2);
 
 	exit(status);
 }
@@ -53,7 +47,6 @@ int main(int argc, char *argv[])
 		error_exit("Error: Can't read from file %s\n", argv[1], -1, -1, 98);
 
 	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-
 	if (file_to == -1)
 		error_exit("Error: Can't write to %s\n", argv[2], file_from, -1, 99);
 
@@ -71,7 +64,6 @@ int main(int argc, char *argv[])
 			copied += result;
 		}
 	}
-
 	if (i == -1)
 		error_exit("Error: Can't read from file %s\n", argv[1], file_from, file_to, 98);
 
