@@ -17,8 +17,6 @@ void error_exit(const char *message, const char *filename, int status)
 {
 	if (filename)
 		dprintf(STDERR_FILENO, message, filename);
-	else
-		dprintf(STDERR_FILENO, message, "");
 
 
 	exit(status);
@@ -38,7 +36,7 @@ int main(int argc, char *argv[])
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
-		error_exit("Usage: %s file_from file_to\n", NULL, 97);
+		error_exit("Usage: %s file_from file_to\n", "", 97);
 
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
@@ -61,6 +59,10 @@ int main(int argc, char *argv[])
 		error_exit("Error: Can't read from file %s\n", argv[1], 98);
 
 	if (close(file_from) == -1 || close(file_to) == -1)
-		error_exit("Error: Can't close fd %d\n", NULL, 100);
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", (file_from == -1)
+				? file_to : file_from);
+		exit(100);
+	}
 	return (0);
 }
