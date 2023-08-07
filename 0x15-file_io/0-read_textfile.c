@@ -43,7 +43,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	free(buf);
 
-	if (write_fl == read_fl)
+	if (write_fl != read_fl)
 	{
 		free(buf);
 		return (0);
