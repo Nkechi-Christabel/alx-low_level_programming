@@ -57,8 +57,9 @@ int main(int argc, char *argv[])
 	if (file_to == -1)
 		error_exit("Error: Can't write to %s\n", argv[2], file_from, -1, 99);
 
-	while ((i = read(file_from, buffer, BUFFER_SIZE)) > 0)
+	while (1)
 	{
+		i = read(file_from, buffer, BUFFER_SIZE);
 		copied = 0;
 		while (copied < i)
 		{
@@ -73,7 +74,7 @@ int main(int argc, char *argv[])
 	}
 
 	if (i == -1)
-		error_exit("", argv[1], file_from, file_to, 98);
+		error_exit("Error: Can't read from file %s\n", argv[1], fd_from, fd_to, 98);
 
 	if (close(file_from) == -1 || close(file_to) == -1)
 		error_exit("Error: Can't close fd %d\n", NULL, file_from, file_to, 100);
