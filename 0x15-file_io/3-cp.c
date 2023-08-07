@@ -57,9 +57,8 @@ int main(int argc, char *argv[])
 	if (file_to == -1)
 		error_exit("Error: Can't write to %s\n", argv[2], file_from, -1, 99);
 
-	while (1)
+	while (i = read(file_from, buffer, BUFFER_SIZE) > 0)
 	{
-		i = read(file_from, buffer, BUFFER_SIZE);
 		copied = 0;
 		while (copied < i)
 		{
