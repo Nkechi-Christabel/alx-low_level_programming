@@ -4,7 +4,6 @@
 #include <fcntl.h>
 #include <errno.h>
 
-#define BUFFER_SIZE 1024
 
 /**
  * error_exit - Helper function to handle errors
@@ -31,7 +30,7 @@ int main(int argc, char *argv[])
 {
 	int file_to, file_from;
 	ssize_t i, result;
-	char buffer[BUFFER_SIZE];
+	char buffer[1024];
 
 	if (argc != 3)
 		error_exit("Usage: file_from file_to\n", "", 97);
@@ -45,7 +44,7 @@ int main(int argc, char *argv[])
 	if (file_to == -1)
 		error_exit("Error: Can't write to %s\n", argv[2], 99);
 
-	while ((i = read(file_from, buffer, BUFFER_SIZE)) > 0)
+	while ((i = read(file_from, buffer, 1024)) > 0)
 	{
 		result = write(file_to, buffer, i);
 
