@@ -29,6 +29,7 @@ void error_exit(const char *message, const char *filename, int fd1, int fd2,
 	if (fd2 != -1)
 		close(fd2);
 
+	dprintf(STDERR_FILENO, "\n");
 	exit(status);
 }
 
@@ -42,7 +43,7 @@ void error_exit(const char *message, const char *filename, int fd1, int fd2,
 int main(int argc, char *argv[])
 {
 	int file_to, file_from;
-	ssize_t i, result;
+	ssize_t i, copied, result;
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
@@ -59,21 +60,20 @@ int main(int argc, char *argv[])
 
 	while ((i = read(file_from, buffer, BUFFER_SIZE)) > 0)
 	{
-			result = write(file_to, buffer, i);
+		result = write(file_to, buffer, i);
 
-			if (result == -1)
-				error_exit("Error: Can't write to %s\n", argv[2], file_from,
+		if (result == -1)
+			error_exit("Error: Can't write to %s\n", argv[2], file_from,
 						file_to, 99);
+
+		copied += result;
 	}
 
 	if (i == -1)
 		error_exit("Error: Can't read from file %s\n", argv[1],
 				file_from, file_to, 98);
 
-	if (close(file_from) == -1)
-		error_exit("Error: Can't close fd %d\n", NULL, file_from, file_to, 100);
-
-	if (close(file_to) == -1)
+	if (close(file_from) == -1 || close(file_to) == -1)
 		error_exit("Error: Can't close fd %d\n", NULL, file_from, file_to, 100);
 
 	return (0);
