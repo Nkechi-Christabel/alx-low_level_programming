@@ -30,7 +30,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	buf = malloc(letters);
 
 	read_fl = read(fd, buf, letters);
-
 	if (read_fl == -1)
 	{
 		close(fd);
