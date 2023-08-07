@@ -7,27 +7,19 @@
 #define BUFFER_SIZE 1024
 
 /**
- * errors - Helper function to handle errors
+ * error_exit - Helper function to handle errors
  * @message: Error message
  * @filename: The initial file which is the 2nd argument
- * @fd1: File directory 1
- * @fd2: File directory 2
  * @status: Exit status
  */
 
-void error_exit(const char *message, const char *filename, int fd1, int fd2,
-		int status)
+void error_exit(const char *message, const char *filename, int status)
 {
 	if (filename)
 		dprintf(STDERR_FILENO, message, filename);
 	else
 		dprintf(STDERR_FILENO, "%s", message);
 
-	if (fd1 != -1)
-		close(fd1);
-
-	if (fd2 != -1)
-		close(fd2);
 
 	dprintf(STDERR_FILENO, "\n");
 	exit(status);
@@ -47,32 +39,30 @@ int main(int argc, char *argv[])
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
-		error_exit("Usage: %s file_from file_to\n", NULL, -1, -1, 97);
+		error_exit("Usage: %s file_from file_to\n", NULL, 97);
 
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
-		error_exit("Error: Can't read from file %s\n", argv[1], -1, -1, 98);
+		error_exit("Error: Can't read from file %s\n", argv[1], 98);
 
 	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
 	if (file_to == -1)
-		error_exit("Error: Can't write to %s\n", argv[2], file_from, -1, 99);
+		error_exit("Error: Can't write to %s\n", argv[2], 99);
 
 	while ((i = read(file_from, buffer, BUFFER_SIZE)) > 0)
 	{
 		result = write(file_to, buffer, i);
 
 		if (result == -1)
-			error_exit("Error: Can't write to %s\n", argv[2], file_from,
-						file_to, 99);
+			error_exit("Error: Can't write to %s\n", argv[2], 99);
 	}
 
 	if (i == -1)
-		error_exit("Error: Can't read from file %s\n", argv[1],
-				file_from, file_to, 98);
+		error_exit("Error: Can't read from file %s\n", argv[1], 98);
 
 	if (close(file_from) == -1 || close(file_to) == -1)
-		error_exit("Error: Can't close fd %d\n", NULL, file_from, file_to, 100);
-
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", (file_from == -1) ?
+				file_to : file_from);
 	return (0);
 }
