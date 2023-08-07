@@ -15,6 +15,7 @@
 void error_exit(const char *message, const char *filename, int status)
 {
 	dprintf(STDERR_FILENO, message, filename);
+	dprintf(STDERR_FILENO, "\n");
 
 	exit(status);
 }
@@ -32,27 +33,27 @@ int main(int argc, char *argv[])
 	char buffer[1024];
 
 	if (argc != 3)
-		error_exit("Usage: file_from file_to\n", "", 97);
+		error_exit("Usage: file_from file_to", "", 97);
 
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
-		error_exit("Error: Can't read from file %s\n", argv[1], 98);
+		error_exit("Error: Can't read from file %s", argv[1], 98);
 
 	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 
 	if (file_to == -1)
-		error_exit("Error: Can't write to %s\n", argv[2], 99);
+		error_exit("Error: Can't write to %s", argv[2], 99);
 
 	while ((i = read(file_from, buffer, 1024)) > 0)
 	{
 		result = write(file_to, buffer, i);
 
 		if (result == -1)
-			error_exit("Error: Can't write to %s\n", argv[2], 99);
+			error_exit("Error: Can't write to %s", argv[2], 99);
 	}
 
 	if (i == -1)
-		error_exit("Error: Can't read from file %s\n", argv[1], 98);
+		error_exit("Error: Can't read from file %s", argv[1], 98);
 
 	if (close(file_from) == -1 || close(file_to) == -1)
 	{
