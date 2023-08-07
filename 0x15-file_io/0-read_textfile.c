@@ -20,7 +20,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	fd = open(filename, O_RDONLY);
-
 	if (fd == -1)
 	{
 		close(fd);
@@ -28,6 +27,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 
 	buf = malloc(letters);
+	if (!buf)
+	{
+		return (0);
+	}
 
 	read_fl = read(fd, buf, letters);
 	if (read_fl == -1)
@@ -44,7 +47,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (write_fl == read_fl)
 	{
-		close(fd);
 		return (0);
 	}
 	close(fd);
