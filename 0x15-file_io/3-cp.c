@@ -28,8 +28,7 @@ void error_exit(const char *message, const char *filename, int status)
  */
 int main(int argc, char *argv[])
 {
-	int file_to, file_from;
-	ssize_t i, result;
+	int file_to, file_from, i, result;
 	char buffer[1024];
 
 	if (argc != 3)
