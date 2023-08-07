@@ -42,7 +42,7 @@ void error_exit(const char *message, const char *filename, int fd1, int fd2,
 int main(int argc, char *argv[])
 {
 	int file_to, file_from;
-	ssize_t i, copied, result;
+	ssize_t i, result;
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
@@ -64,8 +64,6 @@ int main(int argc, char *argv[])
 			if (result == -1)
 				error_exit("Error: Can't write to %s\n", argv[2], file_from,
 						file_to, 99);
-
-			copied += result;
 	}
 
 	if (i == -1)
