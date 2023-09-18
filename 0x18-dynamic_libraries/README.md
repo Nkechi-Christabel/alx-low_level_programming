@@ -1,0 +1,7 @@
+<h1>Dynamic libraries</h1>
+<img src="https://miro.medium.com/v2/resize:fit:4800/0*npYHlHBEHQgP5Lx0" alt="static&dynamicLibrary">
+<h2>What are libraries?</h2>
+<p>A library is a collection of header files, displayed for use by other programs. Their format are different according to the operating system and compiler using. On Linux, a library consists of object file in witch there is a collection of symbols like functions, variables, and so on. There are two kinds of libraries: static libraries and dynamic libraries.</p>
+<h2>How they work ?</h2>
+<p>The static libraries are linked into a program during the linking phase of compilation. The entire library is appended to the executable even if one function is used from it. It’s necessary to recompile the library with another executable file to use it. This method uses more memory because each executable file is indexed with a library</p>
+<p>A dynamic library or shared library is a collection of object file witch are launched only during program execution. This concept reduces the program size and memory use. A shared library is never part of an executable file. A link is created between shared library and executable file. It means that a shared library can be used by any program that needs it. If the library code is updated, it’s not necessary to recompile. It’s location doesn’t move. This method permit to make a green code using less memory.</p>
