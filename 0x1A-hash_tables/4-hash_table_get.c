@@ -21,7 +21,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	/* Traverse the linked list using the above index*/
 	current_item = ht->array[idx];
 
-	while (current_item != NULL)
+	while (current_item)
 	{
 		/* Check if the key matches */
 		if (strcmp(current_item->key, key) == 0)
