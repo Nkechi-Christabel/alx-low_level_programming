@@ -13,8 +13,10 @@ def island_perimeter(grid):
 
     Constraints:
     - Grid is rectangular, with width and height not exceeding 100.
-    - Grid is completely surrounded by water, and there is one island (or nothing).
-    - The island doesn’t have “lakes” (water inside that isn’t connected to the water around the island).
+    - Grid is completely surrounded by water, and there is one island
+    (or nothing).
+    - The island doesn’t have “lakes” (water inside that isn’t connected to
+    the water around the island).
     """
 
     perimeter = 0
