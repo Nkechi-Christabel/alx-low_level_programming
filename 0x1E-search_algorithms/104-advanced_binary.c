@@ -1,5 +1,15 @@
 #include "search_algos.h"
 
+/**
+ * advanced_binary_helper - Performs binary search in the given sorted array
+ *                             within the specified range.
+ * @array: Pointer to the array to be searched.
+ * @low: Starting index of the search range.
+ * @high: Ending index of the search range.
+ * @value: Value to be searched for.
+ *
+ * Return: Index of the found value, or -1 if not found.
+ */
 int advanced_binary_helper(int *array, size_t low, size_t high, int value)
 {
 	size_t i, mid;
@@ -25,12 +35,11 @@ int advanced_binary_helper(int *array, size_t low, size_t high, int value)
 
 /**
  * advanced_binary - Searches for a value in a sorted array of integers.
- * @array: Pointer to the array to be searched.
- * @low: Starting index of the search range.
- * @high:  Ending index of the search range.
- * @value: Value to be searched for.
+ * @array: A pointer to the first element of the array to search.
+ * @size: Size of the array.
+ * @value: The value to search for.
  *
- * Return: Index of the found value, or -1 if not found.
+ * Return: Index of the value or -1 if array is NULL or value isn't present.
  */
 int advanced_binary(int *array, size_t size, int value)
 {
