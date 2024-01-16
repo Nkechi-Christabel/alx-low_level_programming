@@ -14,6 +14,9 @@ int _binary_search(int *array, size_t low, size_t high, int value)
 {
 	size_t mid, i;
 
+	if (!array)
+		return (-1);
+
 	while (array && low <= high)
 	{
 		mid = low + (high - low) / 2;
