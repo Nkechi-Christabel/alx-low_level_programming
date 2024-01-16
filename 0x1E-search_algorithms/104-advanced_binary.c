@@ -14,7 +14,7 @@ int advanced_binary_helper(int *array, size_t low, size_t high, int value)
 {
 	size_t i, mid;
 
-	if (!array)
+	if (!array || low > high)
 		return (-1);
 
 	printf("Searching in array: ");
