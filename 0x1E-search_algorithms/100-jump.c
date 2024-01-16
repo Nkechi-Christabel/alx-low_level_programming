@@ -2,7 +2,7 @@
 
 /**
  * jump_search - Searches for a value in a sorted array of integers using
- *                 the Jump search algorithm.
+ *               the Jump search algorithm.
  * @array: A pointer to the first element of the array to search.
  * @size: Size of the array.
  * @value: The value to search for.
