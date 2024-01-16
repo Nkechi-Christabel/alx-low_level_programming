@@ -19,18 +19,16 @@ int advanced_binary_helper(int *array, size_t low, size_t high, int value)
 
 	printf("Searching in array: ");
 	for (i = low; i <= high; i++)
-		printf("%d ", array[i]);
-	printf("\n");
+		printf("%i%s", array[i], i == high ? "\n" : ", ");
 
 	mid = low + (high - low) / 2;
 
 	if (array[mid] == value && (mid == low || array[mid - 1] != value))
 		return (mid);
-
-	if (array[mid] < value)
+	else if (array[mid] < value)
 		return (advanced_binary_helper(array, mid + 1, high, value));
-
-	return (advanced_binary_helper(array, low, mid, value));
+	else
+		return (advanced_binary_helper(array, low, mid, value));
 }
 
 /**
